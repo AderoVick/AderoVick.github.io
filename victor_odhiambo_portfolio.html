@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor Odhiambo - Statistician & Data Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #475569;
+            --border-color: #e2e8f0;
+            --success: #10b981;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-light: #0f172a;
+                --bg-white: #1e293b;
+                --text-dark: #f1f5f9;
+                --text-light: #cbd5e1;
+                --border-color: #334155;
+            }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            header {
+                background: rgba(30, 41, 59, 0.95);
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-xl);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: var(--spacing-md);
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--spacing-2xl) 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2xl);
+            min-height: 60vh;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .hero-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding: var(--spacing-xl) 0;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xl);
+            color: var(--text-dark);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-2xl);
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .highlight-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlight-box li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .highlight-box li:before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .skill-card {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.4rem 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .skill-list li:before {
+            content: "→ ";
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .exp-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .exp-company {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .exp-date {
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.95rem;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            margin-top: var(--spacing-md);
+        }
+
+        .exp-bullets li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .exp-bullets li:before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15);
+        }
+
+        .project-header {
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .project-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--bg-light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-footer {
+            padding: var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 0.8rem;
+        }
+
+        /* Publications Section */
+        .publication-item {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            border-radius: 8px;
+            border-left: 4px solid var(--success);
+        }
+
+        .publication-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .publication-meta {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .publication-doi {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-white);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-2xl) 0;
+            margin-top: var(--spacing-2xl);
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .experience-item {
+            max-height: 120px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .experience-item.expanded {
+            max-height: 600px;
+        }
+
+        .exp-bullets {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .experience-item.expanded .exp-bullets {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">VO</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container" style="display: flex; align-items: center; gap: 2rem; width: 100%;">
+                <div class="hero-content">
+                    <h1>Victor Odhiambo</h1>
+                    <div class="hero-title">Statistician & Data Analyst</div>
+                    <p class="hero-description">
+                        Translating data into actionable insights. Specialized in survey operations, statistical analysis, and AI-driven solutions for socio-economic research. Ready for deployment across statistical standards, field services, and social statistics.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Get in Touch
+                        </a>
+                        <a href="https://github.com/AderoVick" target="_blank" class="btn btn-secondary">
+                            <i class="fas fa-github"></i> View GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="container">
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a detail-oriented statistician with a Bachelor's degree in Economics & Statistics from Chuka University. With experience in end-to-end statistical workflows—from study design to publication—I specialize in translating raw data into reliable, actionable insights.</p>
+                    <p style="margin-top: var(--spacing-lg);">My expertise spans survey operations, data quality management, advanced statistical analysis, and clear communication of findings. I've maintained continuous professional activity since graduation through independent research consulting, university collaborations, and AI model evaluation work.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>KNBS Level 6 Ready</h3>
+                    <ul>
+                        <li>Survey design & instrument development</li>
+                        <li>Data collection & quality control</li>
+                        <li>Statistical analysis & reporting</li>
+                        <li>Stakeholder communication</li>
+                        <li>County-level dissemination</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><i class="fas fa-chart-bar"></i> Statistical Analysis</h3>
+                    <ul class="skill-list">
+                        <li>Descriptive & Inferential Statistics</li>
+                        <li>Hypothesis Testing & Regression</li>
+                        <li>Time Series & Forecasting</li>
+                        <li>Quality Assurance</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-poll"></i> Survey Methods</h3>
+                    <ul class="skill-list">
+                        <li>Sampling Design & Frames</li>
+                        <li>Questionnaire Development</li>
+                        <li>Field Coordination</li>
+                        <li>Non-response Management</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <ul class="skill-list">
+                        <li>R, Stata, SPSS, Python</li>
+                        <li>JavaScript/TypeScript</li>
+                        <li>SQL/MySQL</li>
+                        <li>Git & Version Control</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-database"></i> Tools & Platforms</h3>
+                    <ul class="skill-list">
+                        <li>CSPro, Power BI, Streamlit</li>
+                        <li>Excel, Google Sheets</li>
+                        <li>FastAPI, HTML/CSS</li>
+                        <li>Linux & Windows</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-brain"></i> AI & ML</h3>
+                    <ul class="skill-list">
+                        <li>LLM Training Data Creation</li>
+                        <li>Model Evaluation & QA</li>
+                        <li>Data Annotation</li>
+                        <li>Dataset Auditing</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Stakeholder Communication</li>
+                        <li>Technical Documentation</li>
+                        <li>Problem Solving</li>
+                        <li>Remote Collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="container">
+            <h2 class="section-title">Experience</h2>
+
+            <div class="experience-item" onclick="toggleExpanded(this)">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">AI Model Training Specialist & Web Developer</div>
+                        <div class="exp-company">Outlier, Handshake, Remotask, Stellar AI</div>
+                    </div>
+                    <div class="exp-date">Jun 2022 - Present</div>
+                </div>
+                <div class="exp-details">Contract, Remote - Multiple project-based roles</div>
+                <ul class="exp-bullets">
+                    <li>Created and verified high-quality training data for LLMs across reasoning, coding, and natural-language tasks</li>
+                    <li>Applied scoring rubrics to evaluate outputs for factuality, safety, and instruction-following</li>
+                    <li>Performed dataset auditing and suggested guideline refinements to improve inter-annotator agreement</li>
+                    <li>Built lightweight Python/JavaScript scripts to speed up validation and reduce rework</li>
+                    <li>Developed responsive web interfaces using JavaScript/TypeScript and HTML/CSS</li>
+                </ul>
+            </div>
+
+            <div class="experience-item" onclick="toggleExpanded(this)">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">Founder & Lead Statistician</div>
+                        <div class="exp-company">Independent Research & Analytics Consultancy</div>
+                    </div>
+                    <div class="exp-date">Dec 2020 - Present</div>
+                </div>
+                <div class="exp-details">Kenya/Remote - Continuous work since graduation</div>
+                <ul class="exp-bullets">
+                    <li>Provide end-to-end statistical support: proposal development, study design, sampling, instrument development</li>
+                    <li>Lead data cleaning, validation, and analysis using R, Stata, SPSS, and Excel</li>
+                    <li>Design questionnaires and data collection instruments with pre-tests/pilots</li>
+                    <li>Prepare analysis-ready datasets and produce publication-ready tables and figures</li>
+                    <li>Maintain reproducible workflows with version control and comprehensive documentation</li>
+                </ul>
+            </div>
+
+            <div class="experience-item" onclick="toggleExpanded(this)">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">Statistical Research Collaborator</div>
+                        <div class="exp-company">University of Peru</div>
+                    </div>
+                    <div class="exp-date">2021 - Present</div>
+                </div>
+                <div class="exp-details">Remote collaboration with Dr. José Luis Arias Gonzáles</div>
+                <ul class="exp-bullets">
+                    <li>Supported research projects through statistical analysis and study design input</li>
+                    <li>Prepared analysis-ready datasets and conducted exploratory and regression analyses</li>
+                    <li>Assisted with methods documentation and improved clarity of statistical reporting</li>
+                    <li>Contributed to peer review cycles and manuscript revisions</li>
+                </ul>
+            </div>
+
+            <div class="experience-item" onclick="toggleExpanded(this)">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">Systems Analyst (Attachment)</div>
+                        <div class="exp-company">Kenya National Bureau of Statistics (KNBS)</div>
+                    </div>
+                    <div class="exp-date">Aug 2019 - Dec 2019</div>
+                </div>
+                <div class="exp-details">Nairobi, Kenya</div>
+                <ul class="exp-bullets">
+                    <li>Validated survey datasets using SPSS, CSPro, and Excel</li>
+                    <li>Received and sorted NASSEP returns; maintained registers and checklists</li>
+                    <li>Prepared analysis-ready Excel summaries and post-enumeration data entry/cleaning</li>
+                    <li>Assisted with editing of NASSEP V clusters and cluster file documentation</li>
+                </ul>
+            </div>
+
+            <div class="experience-item" onclick="toggleExpanded(this)">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">Data Analyst Intern</div>
+                        <div class="exp-company">Kenya National Bureau of Statistics (KNBS)</div>
+                    </div>
+                    <div class="exp-date">May 2019 - Sep 2019</div>
+                </div>
+                <div class="exp-details">Statistical Coordination & Methods Directorate</div>
+                <ul class="exp-bullets">
+                    <li>Supported quality checks for Kenya Demographic and Health Survey (KDHS)</li>
+                    <li>Contributed to data validation and consistency checks</li>
+                    <li>Participated in Kenya Continuous Household Survey (KCHS) 2019 cleaning</li>
+                    <li>Assisted with Census 2019 field administration in Kibera and Langata</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">City Insights Platform</div>
+                        <p class="project-description">End-to-end city mobility and air-quality analytics pipeline with RandomForest model and Streamlit dashboard.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Streamlit</span>
+                            <span class="tag">ML</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/AderoVick/city-insights-platform" target="_blank" class="project-link">
+                            View on GitHub <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Analytics Portfolio</div>
+                        <p class="project-description">Starter repository with EDA notebooks, ETL modules, SQL examples, and Power BI-ready datasets.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Data</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/AderoVick/victor-analytics-portfolio" target="_blank" class="project-link">
+                            View on GitHub <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">STEM ARMA Lab</div>
+                        <p class="project-description">Text stemming and ARMA forecasting with Streamlit dashboard and CLI interface.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Statsmodels</span>
+                            <span class="tag">Streamlit</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/AderoVick/stem-arma-lab" target="_blank" class="project-link">
+                            View on GitHub <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Urban Analytics Suite</div>
+                        <p class="project-description">Demo stack combining FastAPI backend, Streamlit dashboard, and time-series utilities.</p>
+                        <div class="project-tags">
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Streamlit</span>
+                            <span class="tag">Time Series</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/AderoVick/urban-analytics-suite" target="_blank" class="project-link">
+                            View on GitHub <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="publication-item">
+                <div class="publication-title">
+                    The Impact of Free Primary Education in Kenya
+                </div>
+                <div class="publication-meta">
+                    <strong>Adero, V. O., & Otieno, H. A. (2023).</strong> Fronteras en Ciencias de la Educacion, 2(2), 1-16.
+                </div>
+                <p style="color: var(--text-light); margin-bottom: var(--spacing-md);">
+                    Peer-reviewed research examining the impact of free primary education policy in Kenya. First-author publication demonstrating capacity for independent research and policy-relevant analysis.
+                </p>
+                <a href="https://researchgate.net/profile/Victor-Odhiambo-Adero" target="_blank" class="publication-doi">
+                    DOI: 10.58283/fce.v2i2.143 <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p><a href="mailto:bornfacevictor@gmail.com">bornfacevictor@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+254768624915">+254 768 62-4915</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Nanyuki, Kenya (Open to relocation)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Availability</h3>
+                            <p>Open to KNBS deployment and county postings</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: var(--spacing-lg); color: var(--text-dark);">Connect on Social</h3>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/victor-odhiambo-b35946183" target="_blank" class="social-btn" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/AderoVick" target="_blank" class="social-btn" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://researchgate.net/profile/Victor-Odhiambo-Adero" target="_blank" class="social-btn" title="ResearchGate">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
+                        <a href="mailto:bornfacevictor@gmail.com" class="social-btn" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container">
+        <p>&copy; 2024 Victor Odhiambo. Statistician | Data Analyst | Research Consultant</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Ready for deployment across KNBS functional areas</p>
+    </footer>
+
+    <script>
+        function toggleExpanded(element) {
+            element.classList.toggle('expanded');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .project-card, .publication-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
