@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victor Odhiambo - Statistician & Data Analyst</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,143 +14,256 @@
         }
 
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --secondary: #64748b;
-            --bg-light: #f8fafc;
-            --bg-white: #ffffff;
-            --text-dark: #1e293b;
-            --text-light: #475569;
-            --border-color: #e2e8f0;
+            --primary: #0066ff;
+            --primary-dark: #0052cc;
+            --secondary: #00d4ff;
+            --accent: #ff6b6b;
+            --dark-bg: #0a0e27;
+            --card-bg: #1a1f3a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b7d0;
+            --border-color: #2d3a5e;
             --success: #10b981;
-            --spacing-sm: 0.5rem;
-            --spacing-md: 1rem;
-            --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
-            --spacing-2xl: 3rem;
+            --gradient-1: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%);
+            --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-light: #0f172a;
-                --bg-white: #1e293b;
-                --text-dark: #f1f5f9;
-                --text-light: #cbd5e1;
-                --border-color: #334155;
-            }
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Sora', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
+            color: var(--text-primary);
+            background: var(--dark-bg);
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--spacing-lg);
+            padding: 0 2rem;
         }
 
-        /* Navigation */
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            }
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header/Navigation */
         header {
             position: sticky;
             top: 0;
-            background: var(--bg-white);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 100;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.95);
             backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            header {
-                background: rgba(30, 41, 59, 0.95);
-            }
+            border-bottom: 1px solid var(--border-color);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--spacing-md) 0;
+            padding: 1.5rem 0;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .nav-links {
             display: flex;
-            gap: var(--spacing-xl);
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-light);
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.95rem;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         @media (max-width: 768px) {
             .nav-links {
-                gap: var(--spacing-md);
-                font-size: 0.85rem;
+                display: none;
             }
         }
 
         /* Hero Section */
         .hero {
-            padding: var(--spacing-2xl) 0;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            gap: var(--spacing-2xl);
-            min-height: 60vh;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .hero-content {
-            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero-text {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .hero-image {
+            animation: slideInRight 0.8s ease-out;
+            display: flex;
+            justify-content: center;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            color: var(--text-dark);
-            line-height: 1.2;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .hero-title {
+        .hero-subtitle {
             font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: var(--spacing-lg);
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
             font-weight: 500;
         }
 
         .hero-description {
             font-size: 1.1rem;
-            color: var(--text-light);
+            color: var(--text-secondary);
             line-height: 1.8;
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-image img {
+            width: 350px;
+            height: 350px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid transparent;
+            background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                        var(--gradient-1) border-box;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.2);
         }
 
         .cta-buttons {
             display: flex;
-            gap: var(--spacing-md);
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
         .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
+            padding: 1rem 2rem;
+            border-radius: 10px;
             border: none;
             font-size: 1rem;
             cursor: pointer;
@@ -158,22 +271,41 @@
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
+            gap: 0.8rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: var(--gradient-1);
             color: white;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.5);
         }
 
         .btn-secondary {
-            background: var(--bg-light);
+            background: transparent;
             color: var(--primary);
             border: 2px solid var(--primary);
         }
@@ -181,27 +313,12 @@
         .btn-secondary:hover {
             background: var(--primary);
             color: white;
-        }
-
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-image img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary);
+            transform: translateY(-3px);
         }
 
         @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                padding: var(--spacing-xl) 0;
-                min-height: auto;
+            .hero-content {
+                grid-template-columns: 1fr;
             }
 
             .hero h1 {
@@ -209,78 +326,141 @@
             }
 
             .hero-image img {
-                width: 200px;
-                height: 200px;
+                width: 250px;
+                height: 250px;
             }
 
-            .nav-links {
-                display: none;
+            .cta-buttons {
+                flex-direction: column;
             }
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .stat-card {
+            background: rgba(26, 31, 58, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
         /* Section Styling */
         section {
-            margin-bottom: var(--spacing-2xl);
+            padding: 6rem 0;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: var(--spacing-xl);
-            color: var(--text-dark);
-            padding-bottom: var(--spacing-md);
-            border-bottom: 3px solid var(--primary);
-            display: inline-block;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* About Section */
-        .about-content {
+        .about-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: var(--spacing-2xl);
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
         .about-text {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
             font-size: 1.05rem;
-            color: var(--text-light);
             line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
 
-        .highlight-box {
-            background: var(--bg-white);
-            padding: var(--spacing-lg);
-            border-radius: 8px;
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight {
+            background: rgba(0, 102, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
             border-left: 4px solid var(--primary);
+            animation: fadeInUp 0.8s ease-out both;
         }
 
-        .highlight-box h3 {
+        .highlight:nth-child(2) { animation-delay: 0.1s; }
+        .highlight:nth-child(3) { animation-delay: 0.2s; }
+        .highlight:nth-child(4) { animation-delay: 0.3s; }
+
+        .highlight h3 {
+            color: var(--primary);
             font-size: 1.1rem;
-            margin-bottom: var(--spacing-md);
-            color: var(--text-dark);
+            margin-bottom: 0.5rem;
         }
 
-        .highlight-box ul {
-            list-style: none;
-            padding-left: 0;
+        .highlight p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
         }
 
-        .highlight-box li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .highlight-box li:before {
-            content: "✓";
-            color: var(--success);
-            font-weight: bold;
-            font-size: 1.2rem;
+        .about-image {
+            animation: slideInRight 0.8s ease-out;
         }
 
         @media (max-width: 768px) {
-            .about-content {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-highlights {
                 grid-template-columns: 1fr;
             }
         }
@@ -289,27 +469,45 @@
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-lg);
+            gap: 2rem;
         }
 
         .skill-card {
-            background: var(--bg-white);
-            padding: var(--spacing-lg);
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
             border: 1px solid var(--border-color);
             transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out both;
         }
+
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-card:nth-child(6) { animation-delay: 0.6s; }
 
         .skill-card:hover {
             border-color: var(--primary);
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 212, 255, 0.1) 100%);
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .skill-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: var(--spacing-md);
-            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
         }
 
         .skill-list {
@@ -317,259 +515,301 @@
         }
 
         .skill-list li {
-            padding: 0.4rem 0;
-            color: var(--text-light);
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
             font-size: 0.95rem;
-        }
-
-        .skill-list li:before {
-            content: "→ ";
-            color: var(--primary);
-            margin-right: 0.5rem;
-        }
-
-        /* Experience Section */
-        .experience-item {
-            background: var(--bg-white);
-            padding: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
-            cursor: pointer;
             transition: all 0.3s;
         }
 
+        .skill-list li::before {
+            content: "→ ";
+            color: var(--primary);
+            margin-right: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-list li:hover {
+            color: var(--primary);
+            padding-left: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .experience-item {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.6) 0%, rgba(45, 58, 94, 0.4) 100%);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+            cursor: pointer;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .experience-item:nth-child(1) { animation-delay: 0.1s; }
+        .experience-item:nth-child(2) { animation-delay: 0.2s; }
+        .experience-item:nth-child(3) { animation-delay: 0.3s; }
+
         .experience-item:hover {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--secondary);
+            transform: translateX(10px);
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
         }
 
         .exp-header {
             display: flex;
             justify-content: space-between;
-            align-items: start;
-            margin-bottom: var(--spacing-md);
+            align-items: flex-start;
+            margin-bottom: 1rem;
         }
 
         .exp-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-dark);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
         }
 
         .exp-company {
             color: var(--primary);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: 0.3rem;
         }
 
         .exp-date {
-            background: var(--primary);
+            background: var(--gradient-1);
             color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
             white-space: nowrap;
         }
 
         .exp-details {
-            color: var(--text-light);
-            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
             font-size: 0.95rem;
         }
 
         .exp-bullets {
             list-style: none;
-            margin-top: var(--spacing-md);
+            margin-top: 1rem;
         }
 
         .exp-bullets li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
+            padding: 0.6rem 0;
+            color: var(--text-secondary);
             padding-left: 1.5rem;
             position: relative;
+            font-size: 0.95rem;
         }
 
-        .exp-bullets li:before {
-            content: "•";
-            color: var(--primary);
+        .exp-bullets li::before {
+            content: "✓";
+            color: var(--success);
             position: absolute;
             left: 0;
             font-weight: bold;
         }
 
+        @media (max-width: 768px) {
+            .exp-header {
+                flex-direction: column;
+            }
+
+            .exp-date {
+                margin-top: 0.5rem;
+            }
+        }
+
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .project-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.7) 0%, rgba(45, 58, 94, 0.5) 100%);
+            border-radius: 15px;
             overflow: hidden;
+            border: 1px solid var(--border-color);
             transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out both;
         }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
 
         .project-card:hover {
             border-color: var(--primary);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.25);
         }
 
         .project-header {
-            padding: var(--spacing-lg);
+            padding: 2rem;
             border-bottom: 1px solid var(--border-color);
         }
 
+        .project-icon {
+            font-size: 2.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
         .project-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: var(--spacing-sm);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
         }
 
         .project-description {
-            color: var(--text-light);
+            color: var(--text-secondary);
             font-size: 0.95rem;
-            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
         }
 
         .project-tags {
             display: flex;
-            gap: var(--spacing-sm);
+            gap: 0.6rem;
             flex-wrap: wrap;
+            margin-top: 1.5rem;
         }
 
         .tag {
-            background: var(--bg-light);
+            background: rgba(0, 102, 255, 0.2);
             color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 600;
+            border: 1px solid rgba(0, 102, 255, 0.3);
         }
 
         .project-footer {
-            padding: var(--spacing-lg);
+            padding: 1.5rem 2rem;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: flex-end;
         }
 
         .project-link {
             color: var(--primary);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s;
+            gap: 0.6rem;
+            transition: all 0.3s;
         }
 
         .project-link:hover {
-            gap: 0.8rem;
-        }
-
-        /* Publications Section */
-        .publication-item {
-            background: var(--bg-white);
-            padding: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
-            border-radius: 8px;
-            border-left: 4px solid var(--success);
-        }
-
-        .publication-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .publication-meta {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .publication-doi {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
+            gap: 1rem;
+            color: var(--secondary);
         }
 
         /* Contact Section */
-        .contact-content {
+        .contact-wrapper {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 4rem;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-2xl);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            text-align: left;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-lg);
+        .contact-method {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-md);
+        .contact-method:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .contact-details h3 {
-            font-size: 1rem;
-            color: var(--text-dark);
-            margin-bottom: 0.25rem;
+        .contact-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
-        .contact-details p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+        .contact-info {
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
-        .contact-details a {
+        .contact-info a {
             color: var(--primary);
             text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .contact-details a:hover {
-            text-decoration: underline;
+        .contact-info a:hover {
+            color: var(--secondary);
         }
 
         .social-links {
             display: flex;
-            gap: var(--spacing-md);
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
             flex-wrap: wrap;
         }
 
         .social-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--bg-white);
-            border: 2px solid var(--primary);
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background: rgba(0, 102, 255, 0.2);
             color: var(--primary);
+            border: 2px solid var(--primary);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             transition: all 0.3s;
             text-decoration: none;
         }
@@ -577,78 +817,50 @@
         .social-btn:hover {
             background: var(--primary);
             color: white;
-            transform: translateY(-4px);
-        }
-
-        @media (max-width: 768px) {
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 102, 255, 0.4);
         }
 
         /* Footer */
         footer {
-            background: var(--bg-white);
+            background: rgba(10, 14, 39, 0.8);
             border-top: 1px solid var(--border-color);
-            padding: var(--spacing-2xl) 0;
-            margin-top: var(--spacing-2xl);
+            padding: 3rem 0 2rem;
             text-align: center;
-            color: var(--text-light);
+            color: var(--text-secondary);
         }
 
-        /* Responsive */
+        .footer-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text {
+            font-size: 0.95rem;
+        }
+
+        .footer-divider {
+            color: var(--border-color);
+            margin: 0 0.5rem;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
         @media (max-width: 768px) {
             .section-title {
-                font-size: 1.8rem;
-            }
-
-            .hero h1 {
                 font-size: 2rem;
             }
 
-            .cta-buttons {
-                flex-direction: column;
+            .contact-wrapper {
+                padding: 2rem;
             }
 
-            .btn {
-                justify-content: center;
+            .contact-methods {
+                grid-template-columns: 1fr;
             }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .experience-item {
-            max-height: 120px;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .experience-item.expanded {
-            max-height: 600px;
-        }
-
-        .exp-bullets {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .experience-item.expanded .exp-bullets {
-            max-height: 500px;
         }
     </style>
 </head>
@@ -659,6 +871,7 @@
             <nav>
                 <div class="logo">VO</div>
                 <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#experience">Experience</a></li>
@@ -671,348 +884,339 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="container" style="display: flex; align-items: center; gap: 2rem; width: 100%;">
+        <section class="hero" id="home">
+            <div class="container">
                 <div class="hero-content">
-                    <h1>Victor Odhiambo</h1>
-                    <div class="hero-title">Statistician & Data Analyst</div>
-                    <p class="hero-description">
-                        Translating data into actionable insights. Specialized in survey operations, statistical analysis, and AI-driven solutions for socio-economic research. Ready for deployment across statistical standards, field services, and social statistics.
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="#contact" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i> Get in Touch
-                        </a>
-                        <a href="https://github.com/AderoVick" target="_blank" class="btn btn-secondary">
-                            <i class="fas fa-github"></i> View GitHub
-                        </a>
+                    <div class="hero-text">
+                        <h1>Victor Odhiambo</h1>
+                        <div class="hero-subtitle">Statistician & Data Analyst</div>
+                        <p class="hero-description">
+                            Translating complex data into actionable insights. Specialized in survey operations, statistical analysis, and AI-driven solutions for socio-economic research. Ready for deployment across statistical standards, field services, and social statistics.
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="#contact" class="btn btn-primary">
+                                <i class="fas fa-envelope"></i> Get In Touch
+                            </a>
+                            <a href="https://github.com/AderoVick" target="_blank" class="btn btn-secondary">
+                                <i class="fas fa-github"></i> View GitHub
+                            </a>
+                        </div>
+
+                        <div class="stats">
+                            <div class="stat-card">
+                                <div class="stat-number">4+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">20+</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">1</div>
+                                <div class="stat-label">Publication</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Victor Odhiambo">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="container">
-            <h2 class="section-title">About</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a detail-oriented statistician with a Bachelor's degree in Economics & Statistics from Chuka University. With experience in end-to-end statistical workflows—from study design to publication—I specialize in translating raw data into reliable, actionable insights.</p>
-                    <p style="margin-top: var(--spacing-lg);">My expertise spans survey operations, data quality management, advanced statistical analysis, and clear communication of findings. I've maintained continuous professional activity since graduation through independent research consulting, university collaborations, and AI model evaluation work.</p>
-                </div>
-                <div class="highlight-box">
-                    <h3>KNBS Level 6 Ready</h3>
-                    <ul>
-                        <li>Survey design & instrument development</li>
-                        <li>Data collection & quality control</li>
-                        <li>Statistical analysis & reporting</li>
-                        <li>Stakeholder communication</li>
-                        <li>County-level dissemination</li>
-                    </ul>
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Dedicated to excellence in statistical analysis and research</p>
+
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>I'm a detail-oriented statistician with a Bachelor's degree in Economics & Statistics from Chuka University. With comprehensive experience in end-to-end statistical workflows, I specialize in transforming raw data into reliable, actionable insights.</p>
+                        <p>My expertise spans survey design, data quality management, advanced statistical analysis, and clear communication of findings to diverse audiences. I've maintained continuous professional activity since graduation through independent research consulting, university collaborations, and AI model evaluation work.</p>
+                        <p>I'm committed to accuracy, integrity, and delivering publication-ready outputs through robust quality control and reproducible analysis.</p>
+                    </div>
+
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <h3>Survey Design</h3>
+                            <p>End-to-end questionnaire development and pilot testing</p>
+                        </div>
+                        <div class="highlight">
+                            <h3>Data Quality</h3>
+                            <p>Validation, consistency checks, and error correction</p>
+                        </div>
+                        <div class="highlight">
+                            <h3>Analysis</h3>
+                            <p>Descriptive, inferential, and predictive statistics</p>
+                        </div>
+                        <div class="highlight">
+                            <h3>Reporting</h3>
+                            <p>Publication-ready outputs and stakeholder communication</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3><i class="fas fa-chart-bar"></i> Statistical Analysis</h3>
-                    <ul class="skill-list">
-                        <li>Descriptive & Inferential Statistics</li>
-                        <li>Hypothesis Testing & Regression</li>
-                        <li>Time Series & Forecasting</li>
-                        <li>Quality Assurance</li>
-                    </ul>
-                </div>
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <p class="section-subtitle">Tools and technologies I work with</p>
 
-                <div class="skill-card">
-                    <h3><i class="fas fa-poll"></i> Survey Methods</h3>
-                    <ul class="skill-list">
-                        <li>Sampling Design & Frames</li>
-                        <li>Questionnaire Development</li>
-                        <li>Field Coordination</li>
-                        <li>Non-response Management</li>
-                    </ul>
-                </div>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h3>Statistical Analysis</h3>
+                        <ul class="skill-list">
+                            <li>Hypothesis Testing</li>
+                            <li>Regression Analysis</li>
+                            <li>Time Series</li>
+                            <li>Quality Assurance</li>
+                        </ul>
+                    </div>
 
-                <div class="skill-card">
-                    <h3><i class="fas fa-code"></i> Programming</h3>
-                    <ul class="skill-list">
-                        <li>R, Stata, SPSS, Python</li>
-                        <li>JavaScript/TypeScript</li>
-                        <li>SQL/MySQL</li>
-                        <li>Git & Version Control</li>
-                    </ul>
-                </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-poll"></i></div>
+                        <h3>Survey Methods</h3>
+                        <ul class="skill-list">
+                            <li>Sampling Design</li>
+                            <li>Questionnaire Development</li>
+                            <li>Field Coordination</li>
+                            <li>Non-response Management</li>
+                        </ul>
+                    </div>
 
-                <div class="skill-card">
-                    <h3><i class="fas fa-database"></i> Tools & Platforms</h3>
-                    <ul class="skill-list">
-                        <li>CSPro, Power BI, Streamlit</li>
-                        <li>Excel, Google Sheets</li>
-                        <li>FastAPI, HTML/CSS</li>
-                        <li>Linux & Windows</li>
-                    </ul>
-                </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-code"></i></div>
+                        <h3>Programming</h3>
+                        <ul class="skill-list">
+                            <li>R & Stata</li>
+                            <li>Python</li>
+                            <li>JavaScript/TypeScript</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
 
-                <div class="skill-card">
-                    <h3><i class="fas fa-brain"></i> AI & ML</h3>
-                    <ul class="skill-list">
-                        <li>LLM Training Data Creation</li>
-                        <li>Model Evaluation & QA</li>
-                        <li>Data Annotation</li>
-                        <li>Dataset Auditing</li>
-                    </ul>
-                </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-database"></i></div>
+                        <h3>Data Tools</h3>
+                        <ul class="skill-list">
+                            <li>Power BI</li>
+                            <li>CSPro</li>
+                            <li>Excel</li>
+                            <li>Git</li>
+                        </ul>
+                    </div>
 
-                <div class="skill-card">
-                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
-                    <ul class="skill-list">
-                        <li>Stakeholder Communication</li>
-                        <li>Technical Documentation</li>
-                        <li>Problem Solving</li>
-                        <li>Remote Collaboration</li>
-                    </ul>
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                        <h3>AI & ML</h3>
+                        <ul class="skill-list">
+                            <li>Data Annotation</li>
+                            <li>Model Evaluation</li>
+                            <li>Dataset Auditing</li>
+                            <li>QA</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-users"></i></div>
+                        <h3>Soft Skills</h3>
+                        <ul class="skill-list">
+                            <li>Communication</li>
+                            <li>Documentation</li>
+                            <li>Problem Solving</li>
+                            <li>Remote Collaboration</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="container">
-            <h2 class="section-title">Experience</h2>
+        <section id="experience">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">My professional journey</p>
 
-            <div class="experience-item" onclick="toggleExpanded(this)">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-title">AI Model Training Specialist & Web Developer</div>
-                        <div class="exp-company">Outlier, Handshake, Remotask, Stellar AI</div>
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">AI Model Training Specialist & Web Developer</div>
+                                <div class="exp-company">Outlier, Handshake, Remotask, Stellar AI</div>
+                            </div>
+                            <div class="exp-date">Jun 2022 - Present</div>
+                        </div>
+                        <div class="exp-details">Contract, Remote</div>
+                        <ul class="exp-bullets">
+                            <li>Created high-quality training data for LLMs across reasoning, coding, and NLP tasks</li>
+                            <li>Applied scoring rubrics to evaluate outputs for factuality and instruction-following</li>
+                            <li>Performed dataset auditing to improve inter-annotator agreement</li>
+                            <li>Developed responsive web interfaces using JavaScript/TypeScript</li>
+                        </ul>
                     </div>
-                    <div class="exp-date">Jun 2022 - Present</div>
-                </div>
-                <div class="exp-details">Contract, Remote - Multiple project-based roles</div>
-                <ul class="exp-bullets">
-                    <li>Created and verified high-quality training data for LLMs across reasoning, coding, and natural-language tasks</li>
-                    <li>Applied scoring rubrics to evaluate outputs for factuality, safety, and instruction-following</li>
-                    <li>Performed dataset auditing and suggested guideline refinements to improve inter-annotator agreement</li>
-                    <li>Built lightweight Python/JavaScript scripts to speed up validation and reduce rework</li>
-                    <li>Developed responsive web interfaces using JavaScript/TypeScript and HTML/CSS</li>
-                </ul>
-            </div>
 
-            <div class="experience-item" onclick="toggleExpanded(this)">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-title">Founder & Lead Statistician</div>
-                        <div class="exp-company">Independent Research & Analytics Consultancy</div>
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">Founder & Lead Statistician</div>
+                                <div class="exp-company">Independent Research & Analytics Consultancy</div>
+                            </div>
+                            <div class="exp-date">Dec 2020 - Present</div>
+                        </div>
+                        <div class="exp-details">Kenya/Remote</div>
+                        <ul class="exp-bullets">
+                            <li>Provide end-to-end statistical support from proposal to publication</li>
+                            <li>Lead data cleaning, validation, and analysis using R, Stata, SPSS, Excel</li>
+                            <li>Design questionnaires and conduct pre-tests/pilots</li>
+                            <li>Maintain reproducible workflows with version control</li>
+                        </ul>
                     </div>
-                    <div class="exp-date">Dec 2020 - Present</div>
-                </div>
-                <div class="exp-details">Kenya/Remote - Continuous work since graduation</div>
-                <ul class="exp-bullets">
-                    <li>Provide end-to-end statistical support: proposal development, study design, sampling, instrument development</li>
-                    <li>Lead data cleaning, validation, and analysis using R, Stata, SPSS, and Excel</li>
-                    <li>Design questionnaires and data collection instruments with pre-tests/pilots</li>
-                    <li>Prepare analysis-ready datasets and produce publication-ready tables and figures</li>
-                    <li>Maintain reproducible workflows with version control and comprehensive documentation</li>
-                </ul>
-            </div>
 
-            <div class="experience-item" onclick="toggleExpanded(this)">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-title">Statistical Research Collaborator</div>
-                        <div class="exp-company">University of Peru</div>
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">Systems Analyst & Data Analyst</div>
+                                <div class="exp-company">Kenya National Bureau of Statistics (KNBS)</div>
+                            </div>
+                            <div class="exp-date">May 2019 - Dec 2019</div>
+                        </div>
+                        <div class="exp-details">Nairobi, Kenya</div>
+                        <ul class="exp-bullets">
+                            <li>Validated survey datasets using SPSS, CSPro, and Excel</li>
+                            <li>Supported quality checks for KDHS and KCHS workstreams</li>
+                            <li>Participated in Census 2019 field administration</li>
+                            <li>Maintained sampling unit registers and checklists</li>
+                        </ul>
                     </div>
-                    <div class="exp-date">2021 - Present</div>
                 </div>
-                <div class="exp-details">Remote collaboration with Dr. José Luis Arias Gonzáles</div>
-                <ul class="exp-bullets">
-                    <li>Supported research projects through statistical analysis and study design input</li>
-                    <li>Prepared analysis-ready datasets and conducted exploratory and regression analyses</li>
-                    <li>Assisted with methods documentation and improved clarity of statistical reporting</li>
-                    <li>Contributed to peer review cycles and manuscript revisions</li>
-                </ul>
-            </div>
-
-            <div class="experience-item" onclick="toggleExpanded(this)">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-title">Systems Analyst (Attachment)</div>
-                        <div class="exp-company">Kenya National Bureau of Statistics (KNBS)</div>
-                    </div>
-                    <div class="exp-date">Aug 2019 - Dec 2019</div>
-                </div>
-                <div class="exp-details">Nairobi, Kenya</div>
-                <ul class="exp-bullets">
-                    <li>Validated survey datasets using SPSS, CSPro, and Excel</li>
-                    <li>Received and sorted NASSEP returns; maintained registers and checklists</li>
-                    <li>Prepared analysis-ready Excel summaries and post-enumeration data entry/cleaning</li>
-                    <li>Assisted with editing of NASSEP V clusters and cluster file documentation</li>
-                </ul>
-            </div>
-
-            <div class="experience-item" onclick="toggleExpanded(this)">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-title">Data Analyst Intern</div>
-                        <div class="exp-company">Kenya National Bureau of Statistics (KNBS)</div>
-                    </div>
-                    <div class="exp-date">May 2019 - Sep 2019</div>
-                </div>
-                <div class="exp-details">Statistical Coordination & Methods Directorate</div>
-                <ul class="exp-bullets">
-                    <li>Supported quality checks for Kenya Demographic and Health Survey (KDHS)</li>
-                    <li>Contributed to data validation and consistency checks</li>
-                    <li>Participated in Kenya Continuous Household Survey (KCHS) 2019 cleaning</li>
-                    <li>Assisted with Census 2019 field administration in Kibera and Langata</li>
-                </ul>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">City Insights Platform</div>
-                        <p class="project-description">End-to-end city mobility and air-quality analytics pipeline with RandomForest model and Streamlit dashboard.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">Streamlit</span>
-                            <span class="tag">ML</span>
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">Featured work and GitHub projects</p>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon"><i class="fas fa-city"></i></div>
+                            <div class="project-title">City Insights Platform</div>
+                            <p class="project-description">End-to-end city mobility and air-quality analytics pipeline with machine learning model and interactive dashboard.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">FastAPI</span>
+                                <span class="tag">ML</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AderoVick/city-insights-platform" target="_blank" class="project-link">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-footer">
-                        <a href="https://github.com/AderoVick/city-insights-platform" target="_blank" class="project-link">
-                            View on GitHub <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">Analytics Portfolio</div>
-                        <p class="project-description">Starter repository with EDA notebooks, ETL modules, SQL examples, and Power BI-ready datasets.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">Power BI</span>
-                            <span class="tag">Data</span>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="project-title">Analytics Portfolio</div>
+                            <p class="project-description">Comprehensive repository with EDA notebooks, ETL modules, SQL examples, and Power BI-ready datasets.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">SQL</span>
+                                <span class="tag">Power BI</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AderoVick/victor-analytics-portfolio" target="_blank" class="project-link">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-footer">
-                        <a href="https://github.com/AderoVick/victor-analytics-portfolio" target="_blank" class="project-link">
-                            View on GitHub <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">STEM ARMA Lab</div>
-                        <p class="project-description">Text stemming and ARMA forecasting with Streamlit dashboard and CLI interface.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Statsmodels</span>
-                            <span class="tag">Streamlit</span>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon"><i class="fas fa-wave-square"></i></div>
+                            <div class="project-title">STEM ARMA Lab</div>
+                            <p class="project-description">Text stemming and ARMA forecasting with interactive Streamlit dashboard and command-line interface.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Statsmodels</span>
+                                <span class="tag">Streamlit</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AderoVick/stem-arma-lab" target="_blank" class="project-link">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-footer">
-                        <a href="https://github.com/AderoVick/stem-arma-lab" target="_blank" class="project-link">
-                            View on GitHub <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">Urban Analytics Suite</div>
-                        <p class="project-description">Demo stack combining FastAPI backend, Streamlit dashboard, and time-series utilities.</p>
-                        <div class="project-tags">
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">Streamlit</span>
-                            <span class="tag">Time Series</span>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon"><i class="fas fa-building"></i></div>
+                            <div class="project-title">Urban Analytics Suite</div>
+                            <p class="project-description">Complete stack combining FastAPI backend, Streamlit dashboard, and advanced time-series utilities.</p>
+                            <div class="project-tags">
+                                <span class="tag">FastAPI</span>
+                                <span class="tag">Streamlit</span>
+                                <span class="tag">Time Series</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AderoVick/urban-analytics-suite" target="_blank" class="project-link">
+                                View Project <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-footer">
-                        <a href="https://github.com/AderoVick/urban-analytics-suite" target="_blank" class="project-link">
-                            View on GitHub <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Publications Section -->
-        <section id="publications" class="container">
-            <h2 class="section-title">Publications</h2>
-            <div class="publication-item">
-                <div class="publication-title">
-                    The Impact of Free Primary Education in Kenya
-                </div>
-                <div class="publication-meta">
-                    <strong>Adero, V. O., & Otieno, H. A. (2023).</strong> Fronteras en Ciencias de la Educacion, 2(2), 1-16.
-                </div>
-                <p style="color: var(--text-light); margin-bottom: var(--spacing-md);">
-                    Peer-reviewed research examining the impact of free primary education policy in Kenya. First-author publication demonstrating capacity for independent research and policy-relevant analysis.
-                </p>
-                <a href="https://researchgate.net/profile/Victor-Odhiambo-Adero" target="_blank" class="publication-doi">
-                    DOI: 10.58283/fce.v2i2.143 <i class="fas fa-external-link-alt"></i>
-                </a>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision</p>
+
+                <div class="contact-wrapper">
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-info">
+                                <a href="mailto:bornfacevictor@gmail.com">bornfacevictor@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p><a href="mailto:bornfacevictor@gmail.com">bornfacevictor@gmail.com</a></p>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-info">
+                                <a href="tel:+254768624915">+254 768 62-4915</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-label">Location</div>
+                            <div class="contact-info">
+                                Nanyuki, Kenya
+                            </div>
                         </div>
                     </div>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p><a href="tel:+254768624915">+254 768 62-4915</a></p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Location</h3>
-                            <p>Nanyuki, Kenya (Open to relocation)</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Availability</h3>
-                            <p>Open to KNBS deployment and county postings</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 style="margin-bottom: var(--spacing-lg); color: var(--text-dark);">Connect on Social</h3>
                     <div class="social-links">
                         <a href="https://linkedin.com/in/victor-odhiambo-b35946183" target="_blank" class="social-btn" title="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
@@ -1033,49 +1237,67 @@
     </main>
 
     <!-- Footer -->
-    <footer class="container">
-        <p>&copy; 2024 Victor Odhiambo. Statistician | Data Analyst | Research Consultant</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Ready for deployment across KNBS functional areas</p>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    © 2024 Victor Odhiambo
+                    <span class="footer-divider">|</span>
+                    Statistician & Data Analyst
+                    <span class="footer-divider">|</span>
+                    KNBS Level 6 Ready
+                </p>
+            </div>
+        </div>
     </footer>
 
     <script>
-        function toggleExpanded(element) {
-            element.classList.toggle('expanded');
-        }
-
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Add animation on scroll
+        // Active nav link
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.skill-card, .project-card, .publication-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        // Animate skill cards and project cards on scroll
+        document.querySelectorAll('.skill-card, .project-card, .experience-item').forEach(el => {
             observer.observe(el);
         });
     </script>
