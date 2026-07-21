@@ -4,15 +4,16 @@
     "title": "AderoVick Digital Hub",
     "summary": "Central platform for live applications, analytical services, client orders and published work.",
     "category": "Platform",
-    "language": "HTML",
+    "language": "JavaScript",
     "topics": [
       "HTML",
-      "Platform"
+      "Platform",
+      "JavaScript"
     ],
     "websiteUrl": "https://aderovick.github.io/",
     "appUrl": "",
     "repoUrl": "https://github.com/AderoVick/AderoVick.github.io",
-    "updatedAt": "2026-07-21T14:21:00Z",
+    "updatedAt": "2026-07-21T14:21:13Z",
     "status": "Live",
     "featured": true,
     "stars": 1
