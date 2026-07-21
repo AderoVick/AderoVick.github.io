@@ -1,18 +1,43 @@
 [
   {
+    "repo": "AderoVick.github.io",
+    "title": "AderoVick Digital Hub",
+    "summary": "Central platform for live applications, analytical services, client orders and published work.",
+    "category": "Platform",
+    "language": "HTML",
+    "topics": [
+      "HTML",
+      "Platform"
+    ],
+    "websiteUrl": "https://aderovick.github.io/",
+    "appUrl": "",
+    "repoUrl": "https://github.com/AderoVick/AderoVick.github.io",
+    "updatedAt": "2026-07-21T14:21:00Z",
+    "status": "Live",
+    "featured": true,
+    "stars": 1
+  },
+  {
     "repo": "stem-arma-lab",
     "title": "TextPulse Forecast Lab",
     "summary": "NLP and time-series forecasting platform for tracking topic activity and comparing models.",
     "category": "Data Science",
     "language": "Python",
-    "topics": ["NLP", "Forecasting", "Streamlit", "ARIMA"],
+    "topics": [
+      "NLP",
+      "Forecasting",
+      "Streamlit",
+      "ARIMA",
+      "arma",
+      "data-analysis"
+    ],
     "websiteUrl": "https://aderovick.github.io/stem-arma-lab/",
     "appUrl": "https://textpulse-forecast-lab.streamlit.app/",
     "repoUrl": "https://github.com/AderoVick/stem-arma-lab",
-    "updatedAt": "2026-07-20T00:00:00Z",
+    "updatedAt": "2026-07-20T16:21:18Z",
     "status": "Live",
     "featured": true,
-    "stars": 0
+    "stars": 3
   },
   {
     "repo": "city-insights-platform",
@@ -20,14 +45,19 @@
     "summary": "Urban mobility and air-quality analytics with data processing, machine learning and an interactive interface.",
     "category": "Urban Analytics",
     "language": "Python",
-    "topics": ["FastAPI", "Machine Learning", "Analytics"],
+    "topics": [
+      "FastAPI",
+      "Machine Learning",
+      "Analytics",
+      "Urban Analytics"
+    ],
     "websiteUrl": "",
     "appUrl": "",
     "repoUrl": "https://github.com/AderoVick/city-insights-platform",
-    "updatedAt": "2026-07-01T00:00:00Z",
+    "updatedAt": "2025-11-16T19:50:48Z",
     "status": "Source available",
     "featured": true,
-    "stars": 0
+    "stars": 1
   },
   {
     "repo": "urban-analytics-suite",
@@ -35,11 +65,18 @@
     "summary": "A complete analytics stack combining a FastAPI backend, Streamlit dashboard and reusable time-series utilities.",
     "category": "Full-stack Analytics",
     "language": "Python",
-    "topics": ["FastAPI", "Streamlit", "APIs", "Time Series"],
+    "topics": [
+      "FastAPI",
+      "Streamlit",
+      "APIs",
+      "Time Series",
+      "Python",
+      "Full-stack Analytics"
+    ],
     "websiteUrl": "",
     "appUrl": "",
     "repoUrl": "https://github.com/AderoVick/urban-analytics-suite",
-    "updatedAt": "2026-06-20T00:00:00Z",
+    "updatedAt": "2025-11-05T07:48:00Z",
     "status": "Source available",
     "featured": true,
     "stars": 0
@@ -49,14 +86,21 @@
     "title": "Analytics Portfolio",
     "summary": "Exploratory analysis, ETL workflows, SQL examples and reporting-ready datasets.",
     "category": "Data Portfolio",
-    "language": "Python",
-    "topics": ["Python", "SQL", "Power BI", "ETL"],
+    "language": "Jupyter Notebook",
+    "topics": [
+      "Python",
+      "SQL",
+      "Power BI",
+      "ETL",
+      "Jupyter Notebook",
+      "Data Portfolio"
+    ],
     "websiteUrl": "",
     "appUrl": "",
     "repoUrl": "https://github.com/AderoVick/victor-analytics-portfolio",
-    "updatedAt": "2026-06-01T00:00:00Z",
+    "updatedAt": "2025-11-05T07:56:41Z",
     "status": "Source available",
     "featured": false,
-    "stars": 0
+    "stars": 2
   }
 ]
