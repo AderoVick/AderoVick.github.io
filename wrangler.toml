@@ -1,0 +1,12 @@
+name = "aderovick-digital-hub"
+compatibility_date = "2026-07-01"
+pages_build_output_dir = "."
+
+[vars]
+APP_NAME = "AderoVick Digital Hub"
+APP_URL = "https://aderovick.github.io"
+GITHUB_USER = "AderoVick"
+PAYPAL_ENV = "sandbox"
+MPESA_ENV = "sandbox"
+META_GRAPH_VERSION = "v25.0"
+LINKEDIN_VERSION = "202606"

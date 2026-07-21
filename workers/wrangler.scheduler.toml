@@ -1,0 +1,10 @@
+name = "aderovick-social-scheduler"
+main = "social-scheduler.js"
+compatibility_date = "2026-07-01"
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[vars]
+META_GRAPH_VERSION = "v25.0"
+LINKEDIN_VERSION = "202606"

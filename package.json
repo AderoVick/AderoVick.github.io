@@ -1,0 +1,16 @@
+{
+  "name": "aderovick-digital-hub",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AderoVick Digital Hub — projects, services, client orders, payments and social publishing.",
+  "scripts": {
+    "dev": "wrangler pages dev .",
+    "deploy": "wrangler pages deploy . --project-name=aderovick-digital-hub",
+    "sync-projects": "python scripts/sync_projects.py",
+    "check": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.26.0"
+  }
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Centre | AderoVick Digital Hub</title>
+  <meta name="description" content="AderoVick administration dashboard for projects, orders, payments and social publishing.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="site-header"><div class="container navbar">
+  <a class="brand" href="index.html"><span class="brand-mark">AV</span><span class="brand-text">AderoVick <small>Admin Centre</small></span></a>
+  <nav class="nav-links" id="mainNav"><a href="#overview">Overview</a><a href="#orders">Orders</a><a href="#publisher">Publisher</a><a href="#projects">Projects</a></nav>
+  <div class="nav-actions"><a class="btn btn-ghost desktop-only" href="index.html">View public hub</a><button class="menu-btn" id="menuButton">☰</button></div>
+</div></header>
+<main>
+<section class="page-hero"><div class="container"><span class="eyebrow">Private workspace</span><h1>Run the platform from one place.</h1><p class="section-copy">Review orders, monitor payments, update project links and publish approved posts. Production actions require an authenticated admin account.</p><div id="adminStatus" class="notice warning mt-2">Demo dashboard. Connect Supabase and assign the admin role before enabling production actions.</div></div></section>
+<section class="section-sm" id="overview"><div class="container">
+  <div class="dashboard-grid"><div class="metric-card"><span>Open orders</span><strong id="openOrders">0</strong></div><div class="metric-card"><span>Awaiting quote</span><strong id="quoteOrders">0</strong></div><div class="metric-card"><span>Live projects</span><strong id="liveProjects">0</strong></div><div class="metric-card"><span>Scheduled posts</span><strong id="scheduledPosts">0</strong></div></div>
+</div></section>
+<section class="section-sm" id="orders"><div class="container dashboard-card"><div class="section-head"><div><span class="eyebrow">Orders</span><h2 class="section-title" style="font-size:2.3rem">Client work queue</h2></div><button class="btn btn-secondary" id="refreshOrders">Refresh</button></div><div class="table-wrap"><table><thead><tr><th>Tracking</th><th>Client</th><th>Service</th><th>Status</th><th>Estimate</th><th>Submitted</th><th>Action</th></tr></thead><tbody id="ordersBody"><tr><td colspan="7" class="text-muted">No orders loaded.</td></tr></tbody></table></div></div></section>
+<section class="section-sm" id="publisher"><div class="container platform-grid">
+  <form class="form-card" id="publishForm"><span class="eyebrow">Social publishing centre</span><h2>Create once, publish selectively.</h2>
+    <div class="field"><label for="postTitle">Internal title</label><input class="input" id="postTitle" required placeholder="TextPulse launch update"></div>
+    <div class="field mt-1"><label for="postMessage">Post copy</label><textarea class="textarea" id="postMessage" required maxlength="2800" placeholder="Write the approved post here..."></textarea><small><span id="postCount">0</span>/2800 characters</small></div>
+    <div class="field mt-1"><label for="postLink">Link</label><input class="input" id="postLink" type="url" placeholder="https://..."></div>
+    <div class="form-grid mt-1"><div class="field"><label><input type="checkbox" id="postFacebook" checked> Facebook Page</label></div><div class="field"><label><input type="checkbox" id="postLinkedIn" checked> LinkedIn</label></div></div>
+    <div class="field mt-1"><label for="scheduleAt">Publish time</label><input class="input" id="scheduleAt" type="datetime-local"><small>Leave blank to publish immediately. Future scheduling requires a Cloudflare cron job.</small></div>
+    <div id="publishMessage" class="notice hidden mt-2"></div><div class="form-grid mt-2"><button class="btn btn-ghost" type="button" id="saveDraft">Save draft</button><button class="btn btn-primary" type="submit">Publish approved post</button></div>
+  </form>
+  <aside class="quote-card"><span class="eyebrow">Preview</span><h2 id="previewTitle">Your post title</h2><p id="previewMessage" class="text-muted">Your post copy appears here as you type.</p><a id="previewLink" class="btn btn-secondary btn-sm hidden" target="_blank" rel="noopener">Open link ↗</a><div class="notice mt-2">The social APIs require approved developer permissions and secure server-side access tokens. Personal Facebook profiles are not targeted; publishing is designed for a Facebook Page.</div></aside>
+</div></section>
+<section class="section-sm" id="projects"><div class="container dashboard-card"><div class="section-head"><div><span class="eyebrow">Project catalogue</span><h2 class="section-title" style="font-size:2.3rem">Automatic GitHub updates</h2></div><a class="btn btn-secondary" href="https://github.com/AderoVick" target="_blank" rel="noopener">Open GitHub</a></div><p class="section-copy">The scheduled workflow reads repository details and optional <code>project.json</code> files, then rebuilds the catalogue used by the public hub.</p><div class="project-grid" id="adminProjectGrid"></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-bottom"><span>Private administration interface</span><span><a href="security.html">Security guide</a> · <a href="README.md">Setup documentation</a></span></div></footer>
+
+<div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle"><div class="modal-card"><div class="modal-head"><div><span class="eyebrow">Order management</span><h2 id="orderModalTitle">Update order</h2></div><button class="icon-btn" type="button" id="closeOrderModal" aria-label="Close">×</button></div><form id="orderUpdateForm"><input type="hidden" id="updateOrderId"><div class="form-grid"><div class="field"><label for="updateStatus">Status</label><select class="select" id="updateStatus"><option>Submitted</option><option>Under review</option><option>Quoted</option><option>In progress</option><option>Review</option><option>Completed</option><option>Cancelled</option></select></div><div class="field"><label for="updateCurrency">Quote currency</label><select class="select" id="updateCurrency"><option>USD</option><option>KES</option><option>GBP</option><option>EUR</option></select></div><div class="field"><label for="updateAmount">Approved quote</label><input class="input" id="updateAmount" type="number" min="1" step="0.01"></div><div class="field full"><label for="updateNotes">Private admin notes</label><textarea class="textarea" id="updateNotes"></textarea></div></div><div id="updateMessage" class="notice hidden mt-2"></div><button class="btn btn-primary btn-block mt-2" type="submit">Save order update</button></form></div></div>
+<div class="toast-stack" id="toastStack"></div>
+<script src="assets/js/config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script type="module" src="assets/js/admin.js"></script>
+</body></html>

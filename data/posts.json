@@ -1,0 +1,26 @@
+[
+  {
+    "id": "textpulse-launch",
+    "title": "TextPulse Forecast Lab is live",
+    "excerpt": "A practical NLP and forecasting dashboard for measuring topic activity over time and comparing statistical models.",
+    "date": "2026-07-20",
+    "category": "Launch",
+    "url": "https://aderovick.github.io/stem-arma-lab/"
+  },
+  {
+    "id": "reproducible-analysis",
+    "title": "Why reproducible analysis matters",
+    "excerpt": "A reliable workflow should make every cleaning decision, model choice and reporting step traceable.",
+    "date": "2026-07-10",
+    "category": "Analytics",
+    "url": "#services"
+  },
+  {
+    "id": "project-intake",
+    "title": "What to prepare before requesting analysis",
+    "excerpt": "A clear research question, sample dataset, expected output and deadline make quotations faster and more accurate.",
+    "date": "2026-07-01",
+    "category": "Client guide",
+    "url": "order.html"
+  }
+]

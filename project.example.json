@@ -1,0 +1,10 @@
+{
+  "title": "Human-friendly project name",
+  "summary": "One-sentence description shown on the AderoVick hub.",
+  "category": "Data Science",
+  "websiteUrl": "https://aderovick.github.io/example-project/",
+  "appUrl": "https://example-app.streamlit.app/",
+  "featured": true,
+  "status": "Live",
+  "topics": ["Python", "Streamlit", "Forecasting"]
+}

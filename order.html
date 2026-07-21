@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Place an Order | AderoVick Digital Hub</title>
+  <meta name="description" content="Submit a research, data, dashboard or analytical web-tool request and receive a quotation and tracking code.">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="site-header"><div class="container navbar">
+  <a class="brand" href="index.html"><span class="brand-mark">AV</span><span class="brand-text">AderoVick <small>Digital Hub</small></span></a>
+  <nav class="nav-links" id="mainNav"><a href="index.html#apps">Apps</a><a href="index.html#services">Services</a><a href="order.html" aria-current="page">Order</a><a href="portal.html">Client portal</a></nav>
+  <div class="nav-actions"><a class="btn btn-ghost desktop-only" href="portal.html">Track order</a><a class="btn btn-primary desktop-only" href="index.html">Back to hub</a><button class="menu-btn" id="menuButton" aria-controls="mainNav"><span>☰</span></button></div>
+</div></header>
+<main>
+  <section class="page-hero"><div class="container"><span class="eyebrow">Project intake</span><h1>Tell me what success looks like.</h1><p class="section-copy">Provide enough detail for a useful quotation. Your initial estimate updates as you select the service, urgency and complexity.</p></div></section>
+  <section class="section-sm"><div class="container order-layout">
+    <div>
+      <div class="progress" aria-label="Order progress"><span class="active"></span><span class="active"></span><span></span><span></span></div>
+      <form class="form-card" id="orderForm" novalidate>
+        <div class="form-section">
+          <h2>1. Contact information</h2>
+          <div class="form-grid">
+            <div class="field"><label for="clientName">Full name *</label><input class="input" id="clientName" name="clientName" required autocomplete="name"></div>
+            <div class="field"><label for="clientEmail">Email *</label><input class="input" id="clientEmail" name="clientEmail" type="email" required autocomplete="email"></div>
+            <div class="field"><label for="clientPhone">Phone</label><input class="input" id="clientPhone" name="clientPhone" autocomplete="tel" placeholder="Include country code"></div>
+            <div class="field"><label for="country">Country</label><input class="input" id="country" name="country" autocomplete="country-name"></div>
+            <div class="field full"><label for="organisation">Organisation or institution</label><input class="input" id="organisation" name="organisation" autocomplete="organization"></div>
+          </div>
+        </div>
+        <div class="form-section">
+          <h2>2. Project requirements</h2>
+          <div class="form-grid">
+            <div class="field"><label for="service">Primary service *</label><select class="select" id="service" name="service" required><option value="">Select a service</option></select></div>
+            <div class="field"><label for="complexity">Complexity</label><select class="select" id="complexity" name="complexity"><option value="standard">Standard</option><option value="advanced">Advanced</option><option value="enterprise">Large or multi-stage</option></select></div>
+            <div class="field full"><label for="projectTitle">Project title *</label><input class="input" id="projectTitle" name="projectTitle" required placeholder="Example: Customer satisfaction survey analysis"></div>
+            <div class="field full"><label for="description">Question or problem to solve *</label><textarea class="textarea" id="description" name="description" required placeholder="Describe the context, the decision this work should support and the data you have."></textarea></div>
+            <div class="field full"><label for="deliverables">Expected output</label><textarea class="textarea" id="deliverables" name="deliverables" placeholder="Example: cleaned dataset, regression tables, dashboard and five-page summary."></textarea></div>
+          </div>
+        </div>
+        <div class="form-section">
+          <h2>3. Timing and budget</h2>
+          <div class="form-grid">
+            <div class="field"><label for="deadline">Preferred deadline</label><input class="input" id="deadline" name="deadline" type="date"></div>
+            <div class="field"><label for="urgency">Urgency</label><select class="select" id="urgency" name="urgency"><option value="flexible">Flexible</option><option value="normal" selected>Normal</option><option value="priority">Priority</option><option value="urgent">Urgent</option></select></div>
+            <div class="field"><label for="budget">Budget</label><input class="input" id="budget" name="budget" type="number" min="0" step="1" placeholder="Optional"></div>
+            <div class="field"><label for="currency">Currency</label><select class="select" id="currency" name="currency"><option value="USD">USD</option><option value="KES">KES</option><option value="GBP">GBP</option><option value="EUR">EUR</option></select></div>
+          </div>
+        </div>
+        <div class="form-section">
+          <h2>4. Supporting files</h2>
+          <div class="field"><label for="files">Upload sample data or instructions</label><input class="input" id="files" name="files" type="file" multiple accept=".csv,.xlsx,.xls,.sav,.dta,.pdf,.doc,.docx,.txt,.zip"><small>Up to 8 MB per file when the secure backend is enabled. Avoid uploading passwords, payment details or highly sensitive personal data.</small></div>
+        </div>
+        <div class="field mt-2"><label><input type="checkbox" id="consent" required> I confirm that I am authorised to share the submitted information and agree to the <a href="terms.html" style="text-decoration:underline">service terms</a> and <a href="privacy.html" style="text-decoration:underline">privacy notice</a>.</label></div>
+        <div id="orderMessage" class="notice hidden mt-2"></div>
+        <button class="btn btn-primary btn-block mt-2" type="submit" id="submitOrder">Submit request and get tracking code</button>
+      </form>
+    </div>
+    <aside class="quote-card" aria-live="polite">
+      <span class="eyebrow">Planning estimate</span><h2>Estimated starting range</h2>
+      <div class="quote-total" id="quoteTotal">Select a service</div>
+      <div class="quote-list"><div class="quote-row"><span>Base service</span><strong id="quoteBase">—</strong></div><div class="quote-row"><span>Complexity</span><strong id="quoteComplexity">Standard</strong></div><div class="quote-row"><span>Urgency</span><strong id="quoteUrgency">Normal</strong></div><div class="quote-row"><span>Typical timeline</span><strong id="quoteTimeline">—</strong></div></div>
+      <div class="notice">This is a planning estimate, not a final invoice. The confirmed quotation follows a scope review.</div>
+      <h3>What happens next?</h3><ol class="text-muted"><li>You receive a tracking code.</li><li>The brief is reviewed.</li><li>A confirmed scope and quotation are sent.</li><li>Payment is requested only after approval.</li></ol>
+    </aside>
+  </div></section>
+</main>
+<footer class="site-footer"><div class="container footer-bottom"><span>© <span id="year"></span> Victor Odhiambo</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="security.html">Security</a></span></div></footer>
+<div class="toast-stack" id="toastStack"></div>
+<script src="assets/js/config.js"></script><script type="module" src="assets/js/order.js"></script>
+</body></html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Client Portal | AderoVick Digital Hub</title>
+  <meta name="description" content="Track an AderoVick project request or sign in to view client orders.">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="site-header"><div class="container navbar">
+  <a class="brand" href="index.html"><span class="brand-mark">AV</span><span class="brand-text">AderoVick <small>Digital Hub</small></span></a>
+  <nav class="nav-links" id="mainNav"><a href="index.html#apps">Apps</a><a href="index.html#services">Services</a><a href="order.html">Order</a><a href="portal.html" aria-current="page">Client portal</a></nav>
+  <div class="nav-actions"><a class="btn btn-primary desktop-only" href="order.html">New request</a><button class="menu-btn" id="menuButton">☰</button></div>
+</div></header>
+<main>
+  <section class="page-hero"><div class="container"><span class="eyebrow">Client portal</span><h1>Know where your project stands.</h1><p class="section-copy">Track a guest request using its code and billing email, or sign in when account features are enabled.</p></div></section>
+  <section class="section-sm"><div class="container platform-grid">
+    <section class="form-card">
+      <h2 class="mt-0">Track with a code</h2><p class="text-muted">Use the tracking code shown after submitting your request.</p>
+      <form id="trackForm"><div class="form-grid">
+        <div class="field"><label for="trackingCode">Tracking code</label><input class="input" id="trackingCode" required placeholder="AV-260720-ABCDE"></div>
+        <div class="field"><label for="trackEmail">Email</label><input class="input" id="trackEmail" type="email" required></div>
+      </div><button class="btn btn-primary mt-2" type="submit">Find order</button></form>
+      <div id="trackMessage" class="notice hidden mt-2"></div>
+      <div id="orderResult" class="hidden"></div>
+    </section>
+    <section class="form-card">
+      <div class="auth-tabs"><button class="auth-tab active" data-auth-tab="signin">Sign in</button><button class="auth-tab" data-auth-tab="signup">Create account</button></div>
+      <form id="authForm"><div class="field"><label for="authEmail">Email</label><input class="input" id="authEmail" type="email" required></div><div class="field mt-1"><label for="authPassword">Password</label><input class="input" id="authPassword" type="password" minlength="8" required></div><button class="btn btn-secondary btn-block mt-2" type="submit" id="authButton">Sign in</button></form>
+      <div id="authMessage" class="notice mt-2">Account login activates after Supabase is configured. Guest tracking works without an account.</div>
+    </section>
+  </div></section>
+</main>
+<footer class="site-footer"><div class="container footer-bottom"><span>© <span id="year"></span> Victor Odhiambo</span><span><a href="privacy.html">Privacy</a> · <a href="security.html">Security</a></span></div></footer>
+<script src="assets/js/config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script type="module" src="assets/js/portal.js"></script>
+</body></html>

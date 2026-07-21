@@ -1,0 +1,79 @@
+[
+  {
+    "id": "research-survey",
+    "name": "Research & Survey Support",
+    "category": "Research",
+    "summary": "Questionnaires, sampling support, codebooks, data-management plans and fieldwork quality checks.",
+    "baseUsd": 120,
+    "deliveryDays": 5,
+    "icon": "clipboard",
+    "deliverables": ["Research-ready instrument", "Codebook or data plan", "Quality checklist"],
+    "popular": true
+  },
+  {
+    "id": "data-cleaning",
+    "name": "Data Cleaning & Validation",
+    "category": "Data",
+    "summary": "Reproducible cleaning, missing-data review, recoding, anomaly checks and validation reporting.",
+    "baseUsd": 90,
+    "deliveryDays": 3,
+    "icon": "sparkles",
+    "deliverables": ["Clean dataset", "Cleaning log", "Validation summary"],
+    "popular": true
+  },
+  {
+    "id": "statistical-analysis",
+    "name": "Statistical Analysis",
+    "category": "Analytics",
+    "summary": "Descriptive, inferential, regression and time-series analysis aligned to the research question.",
+    "baseUsd": 180,
+    "deliveryDays": 7,
+    "icon": "chart",
+    "deliverables": ["Analysis output", "Interpretation", "Tables and figures"],
+    "popular": true
+  },
+  {
+    "id": "dashboard-reporting",
+    "name": "Dashboards & Reporting",
+    "category": "Analytics",
+    "summary": "Interactive dashboards, clear visualisations and decision-focused reports for stakeholders.",
+    "baseUsd": 250,
+    "deliveryDays": 10,
+    "icon": "dashboard",
+    "deliverables": ["Interactive dashboard", "Documentation", "Export-ready report"],
+    "popular": false
+  },
+  {
+    "id": "ai-evaluation",
+    "name": "AI Model Evaluation",
+    "category": "AI",
+    "summary": "Rubric-based model-output review, dataset auditing, factuality checks and quality assurance.",
+    "baseUsd": 140,
+    "deliveryDays": 5,
+    "icon": "brain",
+    "deliverables": ["Evaluation rubric", "Scored outputs", "Findings and recommendations"],
+    "popular": false
+  },
+  {
+    "id": "analytical-web-tool",
+    "name": "Analytical Web Tool",
+    "category": "Development",
+    "summary": "A lightweight Streamlit, Python or JavaScript application for a focused analytical workflow.",
+    "baseUsd": 450,
+    "deliveryDays": 14,
+    "icon": "code",
+    "deliverables": ["Working application", "Source code", "Deployment guide"],
+    "popular": false
+  },
+  {
+    "id": "consultation",
+    "name": "Project Consultation",
+    "category": "Consulting",
+    "summary": "A structured session to clarify your question, data, method, risks, timeline and next steps.",
+    "baseUsd": 35,
+    "deliveryDays": 1,
+    "icon": "message",
+    "deliverables": ["45-minute session", "Action plan", "Follow-up notes"],
+    "popular": false
+  }
+]

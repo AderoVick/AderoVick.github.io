@@ -1,0 +1,44 @@
+{
+  "AderoVick.github.io": {
+    "title": "AderoVick Digital Hub",
+    "category": "Platform",
+    "websiteUrl": "https://aderovick.github.io/",
+    "appUrl": "",
+    "featured": true,
+    "status": "Live",
+    "summary": "Central platform for live applications, analytical services, client orders and published work."
+  },
+  "stem-arma-lab": {
+    "title": "TextPulse Forecast Lab",
+    "category": "Data Science",
+    "websiteUrl": "https://aderovick.github.io/stem-arma-lab/",
+    "appUrl": "https://textpulse-forecast-lab.streamlit.app/",
+    "featured": true,
+    "status": "Live",
+    "summary": "NLP and time-series forecasting platform for tracking topic activity and comparing models."
+  },
+  "city-insights-platform": {
+    "title": "City Insights Platform",
+    "category": "Urban Analytics",
+    "websiteUrl": "",
+    "appUrl": "",
+    "featured": true,
+    "status": "Source available"
+  },
+  "urban-analytics-suite": {
+    "title": "Urban Analytics Suite",
+    "category": "Full-stack Analytics",
+    "websiteUrl": "",
+    "appUrl": "",
+    "featured": true,
+    "status": "Source available"
+  },
+  "victor-analytics-portfolio": {
+    "title": "Analytics Portfolio",
+    "category": "Data Portfolio",
+    "websiteUrl": "",
+    "appUrl": "",
+    "featured": false,
+    "status": "Source available"
+  }
+}

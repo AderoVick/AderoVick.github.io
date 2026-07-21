@@ -1,0 +1,19 @@
+# Optional: add this workflow to each project repository for immediate hub refresh.
+# Create a fine-grained token with Contents: Read/Write access ONLY to AderoVick.github.io,
+# save it in the project repository as HUB_DISPATCH_TOKEN, and review the permission scope.
+name: Notify digital hub
+on:
+  push:
+    branches: [main]
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch catalogue refresh
+        run: |
+          curl --fail --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${{ secrets.HUB_DISPATCH_TOKEN }}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/AderoVick/AderoVick.github.io/actions/workflows/sync-projects.yml/dispatches \
+            --data '{"ref":"main"}'

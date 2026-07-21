@@ -1,0 +1,62 @@
+[
+  {
+    "repo": "stem-arma-lab",
+    "title": "TextPulse Forecast Lab",
+    "summary": "NLP and time-series forecasting platform for tracking topic activity and comparing models.",
+    "category": "Data Science",
+    "language": "Python",
+    "topics": ["NLP", "Forecasting", "Streamlit", "ARIMA"],
+    "websiteUrl": "https://aderovick.github.io/stem-arma-lab/",
+    "appUrl": "https://textpulse-forecast-lab.streamlit.app/",
+    "repoUrl": "https://github.com/AderoVick/stem-arma-lab",
+    "updatedAt": "2026-07-20T00:00:00Z",
+    "status": "Live",
+    "featured": true,
+    "stars": 0
+  },
+  {
+    "repo": "city-insights-platform",
+    "title": "City Insights Platform",
+    "summary": "Urban mobility and air-quality analytics with data processing, machine learning and an interactive interface.",
+    "category": "Urban Analytics",
+    "language": "Python",
+    "topics": ["FastAPI", "Machine Learning", "Analytics"],
+    "websiteUrl": "",
+    "appUrl": "",
+    "repoUrl": "https://github.com/AderoVick/city-insights-platform",
+    "updatedAt": "2026-07-01T00:00:00Z",
+    "status": "Source available",
+    "featured": true,
+    "stars": 0
+  },
+  {
+    "repo": "urban-analytics-suite",
+    "title": "Urban Analytics Suite",
+    "summary": "A complete analytics stack combining a FastAPI backend, Streamlit dashboard and reusable time-series utilities.",
+    "category": "Full-stack Analytics",
+    "language": "Python",
+    "topics": ["FastAPI", "Streamlit", "APIs", "Time Series"],
+    "websiteUrl": "",
+    "appUrl": "",
+    "repoUrl": "https://github.com/AderoVick/urban-analytics-suite",
+    "updatedAt": "2026-06-20T00:00:00Z",
+    "status": "Source available",
+    "featured": true,
+    "stars": 0
+  },
+  {
+    "repo": "victor-analytics-portfolio",
+    "title": "Analytics Portfolio",
+    "summary": "Exploratory analysis, ETL workflows, SQL examples and reporting-ready datasets.",
+    "category": "Data Portfolio",
+    "language": "Python",
+    "topics": ["Python", "SQL", "Power BI", "ETL"],
+    "websiteUrl": "",
+    "appUrl": "",
+    "repoUrl": "https://github.com/AderoVick/victor-analytics-portfolio",
+    "updatedAt": "2026-06-01T00:00:00Z",
+    "status": "Source available",
+    "featured": false,
+    "stars": 0
+  }
+]
